@@ -58,6 +58,10 @@ int main() {
     while(1){
 
         printTable();
+        if(strcmp(errmsg, "") == 0){
+
+            sprintf(errmsg, "%s", "OK");
+        }
         printf("LAST Command: %s\n", str);
         printf("Message: %s\n", errmsg);
         printf("INPUT > ");
@@ -74,7 +78,7 @@ int main() {
         if (strcmp("LD", opcode) == 0){
             if (str[2] != ' '){
                 initialize();
-                sprintf(errmsg, "%s", "Loaded unshuffled deck");
+                //sprintf(errmsg, "%s", "Loaded unshuffled deck");
                 continue;
 
             }
@@ -89,7 +93,7 @@ int main() {
             }
             freeMem();
             loadDeck();
-            sprintf(errmsg, "%s", "Loaded chosen deck");
+            //sprintf(errmsg, "%s", "Loaded chosen deck");
 
         } else if(opcode[0] == 'C'){
             fromColoumn = ((int) opcode[1]) - 1 - 0x30 ;
@@ -119,6 +123,7 @@ int main() {
             freeMem();
             break;
         }
+
 
 
 
